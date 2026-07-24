@@ -1,11 +1,19 @@
 cff-version: 1.2.0
-message: "If you use this code, please cite the associated manuscript and archived software release."
-title: "FOXC2 lymphatic endothelial cell single-cell analysis"
+
+message: >
+  If you use the analysis code or workflows from this repository,
+  please cite this repository. The associated manuscript is currently
+  under consideration. Full publication details will be added after
+  acceptance.
+
 type: software
+
 authors:
   - family-names: Gupta
     given-names: Krishan
-version: 1.0.0
-date-released: 2026-07-23
-repository-code: "https://github.com/USERNAME/REPOSITORY"
-license: MIT
+
+repository-code: https://github.com/krishan57gupta/Lymphatic_switch_paper
+
+license: BSD-3-Clause
+
+version: "1.0.0"
