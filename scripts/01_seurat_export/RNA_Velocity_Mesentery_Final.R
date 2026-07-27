@@ -47,7 +47,7 @@ seurat_obj<-readRDS(paste(processedDataDir,'combined_',dataType,'_ABC_F.rds',sep
 
 
 seurat_obj$barcode <- colnames(seurat_obj)
-write.csv(seurat_obj@meta.data, file=paste0(newDir,'metadataF.csv'), quote=F)
+write_csv(tibble::rownames_to_column(seurat_obj@meta.data, var = "cell_id"), file = paste0(newDir, "metadataF.csv"))
 
 # write expression counts matrix
 library(Matrix)
@@ -56,8 +56,8 @@ counts_matrix <- GetAssayData(seurat_obj, assay='RNA', slot='counts')
 writeMM(counts_matrix, file=paste0(newDir,'countsF.mtx'))
 
 # write dimesnionality reduction matrix, in this example case pca matrix
-write.csv(seurat_obj@reductions$RNA_pca@cell.embeddings, file=paste0(newDir,'RNA_pcaF.csv'), quote=F)
-write.csv(seurat_obj@reductions$ABC_pca@cell.embeddings, file=paste0(newDir,'ABC_pcaF.csv'), quote=F)
+write.csv(seurat_obj@reductions$RNA_pca@cell.embeddings, file=paste0(newDir,'RNA_pcaF.csv'))
+write.csv(seurat_obj@reductions$ABC_pca@cell.embeddings, file=paste0(newDir,'ABC_pcaF.csv'))
 
 # write gene names
 write.table(
