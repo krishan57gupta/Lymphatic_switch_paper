@@ -47,10 +47,6 @@ seurat_obj<-readRDS(paste(processedDataDir,'combined_',dataType,'_ABC_F.rds',sep
 
 
 seurat_obj$barcode <- colnames(seurat_obj)
-# seurat_obj$UMAP_1 <- seurat_obj@reductions$umap@cell.embeddings[,1]
-# seurat_obj$UMAP_2 <- seurat_obj@reductions$umap@cell.embeddings[,2]
-seurat_obj@meta.data$CMcor=NULL
-seurat_obj@meta.data$CFcor=NULL
 write.csv(seurat_obj@meta.data, file=paste0(newDir,'metadataF.csv'), quote=F)
 
 # write expression counts matrix
